@@ -1,0 +1,15 @@
+{
+  "name": "calendar-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "Edward",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
