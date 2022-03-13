@@ -1,21 +1,32 @@
-const { response } = require("express");
+const authCreateUser = (req, res) => {
+  const { name, email, password } = req.body;
 
-const authCreateUser = (req, res = response) => {
-  res.json({
+  res.status(201).json({
     ok: true,
-    message: "Register",
+    message: "Successful registration ",
+    user: {
+      name,
+      email,
+      password,
+    },
   });
 };
 
 const authLoginUser = (req, res) => {
-  res.json({
+  const { email, password } = req.body;
+
+  res.status(201).json({
     ok: true,
-    message: "loginUser",
+    message: "Successful login",
+    user: {
+      email,
+      password,
+    },
   });
 };
 
 const authRevalidateToken = (req, res) => {
-  res.json({
+  res.status(201).json({
     ok: true,
     message: "Renew",
   });
