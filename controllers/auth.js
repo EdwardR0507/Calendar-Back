@@ -103,9 +103,15 @@ const authLoginUser = async (req, res) => {
 };
 
 const authRevalidateToken = (req, res) => {
+  const { uid, name } = req;
+
+  // Generate a new JWT token
+  const token = generateJWT(uid, name);
+
   res.status(201).json({
     ok: true,
-    message: "Renew",
+    message: "Revalidate token",
+    token,
   });
 };
 
