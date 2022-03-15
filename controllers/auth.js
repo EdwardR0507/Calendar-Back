@@ -42,16 +42,6 @@ const authCreateUser = async (req, res) => {
       message: "Communicate with the administrator",
     });
   }
-
-  res.status(201).json({
-    ok: true,
-    message: "Successful registration ",
-    user: {
-      name,
-      email,
-      password,
-    },
-  });
 };
 
 const authLoginUser = async (req, res) => {
@@ -91,15 +81,6 @@ const authLoginUser = async (req, res) => {
       message: "Communicate with the administrator",
     });
   }
-
-  res.status(201).json({
-    ok: true,
-    message: "Successful login",
-    user: {
-      email,
-      password,
-    },
-  });
 };
 
 const authRevalidateToken = (req, res) => {
