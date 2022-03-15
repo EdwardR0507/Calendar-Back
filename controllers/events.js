@@ -1,9 +1,19 @@
 const Event = require("../models/Event");
-const eventsGetEvents = (req, res) => {
-  res.json({
-    ok: true,
-    message: "Get events",
-  });
+const eventsGetEvents = async (req, res) => {
+  try {
+    const events = await Event.find().populate("user", "name");
+    res.status(200).json({
+      ok: true,
+      message: "Get events",
+      events,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      ok: false,
+      message: "Communicate with the administrator",
+    });
+  }
 };
 
 const eventsCreateEvent = async (req, res) => {
