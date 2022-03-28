@@ -67,7 +67,7 @@ const authLoginUser = async (req, res) => {
     // Generate token
     const token = generateJWT(user._id, user.name);
 
-    res.status(201).json({
+    res.status(200).json({
       ok: true,
       message: "Successful login",
       uid: user._id,
@@ -89,10 +89,12 @@ const authRevalidateToken = (req, res) => {
   // Generate a new JWT token
   const token = generateJWT(uid, name);
 
-  res.status(201).json({
+  res.status(200).json({
     ok: true,
     message: "Revalidate token",
     token,
+    uid,
+    name,
   });
 };
 
